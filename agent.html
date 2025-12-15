@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Agentforce Embedded Agent</title>
+  <!-- Optional meta tag instructions mentioned by Agentforce -->
+  <meta name="embedded-messaging-language" content="en_US" />
+  <style>
+    /* Fill the iframe; make content responsive */
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+    #esw-root {
+      height: 100%;
+    }
+    /* Optional center placeholder if agent isn't visible immediately */
+    .loading-placeholder {
+      height: 100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#666;
+      font-size:14px;
+    }
+  </style>
+</head>
+<body>
+  <div id="esw-root" aria-hidden="true">
+    <div class="loading-placeholder">Loading embedded agent…</div>
+  </div>
+
+  <!-- Agentforce / Embedded Messaging snippet: replace values with yours -->
+  <script type='text/javascript'>
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+
+			embeddedservice_bootstrap.init(
+				'00DgL00000EYVqv',
+				'Agentic_Arch_Web_Demo',
+				'https://orgfarm-588c6905e6-dev-ed.develop.my.site.com/ESWAgenticArchWebDemo1765457498271',
+				{
+					scrt2URL: 'https://orgfarm-588c6905e6-dev-ed.develop.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://orgfarm-588c6905e6-dev-ed.develop.my.site.com/ESWAgenticArchWebDemo1765457498271/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
+
+  <!-- External bootstrap script: keep as provided by Agentforce (must be reachable from host) -->
+  <script type="text/javascript"
+    src="https://orgfarm-588c6905e6-dev-ed.develop.my.site.com/ESWMCIMessagingChannel1765451503165/assets/js/bootstrap.min.js"
+    onload="initEmbeddedMessaging()">
+  </script>
+</body>
+</html>
